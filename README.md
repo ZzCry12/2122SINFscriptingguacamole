@@ -1,4 +1,4 @@
 # 2122SINFscriptingguacamole
 Scripts activities and examples
-Darius Rata
+Darius Rata and
 Vicen Llopis
