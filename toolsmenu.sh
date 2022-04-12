@@ -3,7 +3,7 @@
 
 main_menu () {
   echo "Please, choose an option:"
-  echo "1 .- Virus scan options"
+  echo "1 .- Virus scan options - Not Working"
   echo "2 .- Analyse directories"
   echo "3 .- Whatever..."
   read $Option
