@@ -44,37 +44,29 @@ exit 1
 ##### Team Rocket
 
   if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "ERROR to pass a parameter."
-    echo "Reminder that all required files will be copied to /home/\$USER/backup/project_backup."
-    echo "USAGE: ./backup.sh LOGFILE DIRECTORY-TO-BACKUP"
-    exit 1;
-  fi
+    echo "Reminder that all required files will be copied to where u want"
+    read BACKUP_FROM
 
-
+    fi
+    echo "where you want to copy the files"
+    read destino
   LOG=$1
   BACKUP_FROM=$2
 
-  function ctrlc {
-    rm -rf /home/$USER/backup/project_backup
-    rm -f $LOG
-    echo "Received Ctrl+C"
-    exit 1
-  }
 
-  trap ctrlc SIGINT
+  echo "Timestamp before work is done $(date +"%D %T")"
 
-  echo "Timestamp before work is done $(date +"%D %T")" >> $LOG
-
-  echo "Creating backup directory" >> $LOG
+  echo "Creating backup directory"
   if ! (mkdir /home/$USER/backup/project_backup 2> /dev/null)
   then
-    echo "Directory already existed." >> $LOG
+    echo "Directory already existed."
   fi
 
-  echo "Copying Files" >> $LOG
-  cp -v $BACKUP_FROM/* /home/$USER/backup/project_backup/ >> $LOG
-  echo "Finished Copying Files" >> $LOG
-  echo "Timestamp after work is done $(date +"%D %T")" >> $LOG
+  echo "Copying Files"
+  tar czf $destino/$date $BACKUP_FROM
+  echo "Finished Copying Files"
+  echo "Timestamp after work is done $(date +"%D %T")"
+
     ;;
 
     * )
